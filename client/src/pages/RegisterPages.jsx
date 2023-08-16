@@ -21,12 +21,11 @@ function RegisterPages() {
         <div className="container min-w-full flex flex-col items-center mt-40 ">
         {
             RegisterErrors.map((error, i)=>(
-                <div className='bg-red-500 text-white p-2' key={i}>
+                <div className='bg-red-500 text-black p-2' key={i}>
                     {error}
                 </div>
             ))
         }
-
             <form onSubmit={onSubmited}>
                 <div className="container min-w-full flex flex-col items-center text-white py-2 px-4 mt-3 rounded">
                 <input className='bg-zinc-300 text-white px-9 py-4 rounded-md my-2' type="text" {...register("username",{required:true})} placeholder='username' /> 
