@@ -3,9 +3,8 @@ import { TOKEN_SECRET } from "../config.js";
 
 export const requireAuth = (req, res, next) => {
 
-    // console.log(req.headers)
     const { token } = req.cookies;
-    // console.log(token);
+    
     if(!token)
     return res.status(401).json({ massage: "no token, authorization denied" });
 
@@ -16,3 +15,4 @@ export const requireAuth = (req, res, next) => {
         next();
     })
 }
+
