@@ -70,11 +70,13 @@ export const AunthProvider = ({ children }) => {
             if(!res.data){
                 setIsAuthenticated(false);
                 setLoading(false);
+                return
             }
             setIsAuthenticated(true);
             setUser(res.data);
             setLoading(false)
         } catch (error) {
+            console.log(error)
             setIsAuthenticated(false);
             setUser(null);
             setLoading(false);
