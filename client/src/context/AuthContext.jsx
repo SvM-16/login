@@ -61,6 +61,7 @@ export const AunthProvider = ({ children }) => {
         
         if(!cookies.token){
             setIsAuthenticated(false);
+            setLoading(false)
             return setUser(null);
         }
         try {
