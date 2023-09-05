@@ -13,6 +13,7 @@ export const useAuth = () => {
     return context;
 }
 
+// eslint-disable-next-line react/prop-types
 export const AunthProvider = ({ children }) => {
     const [user,setUser] = useState(null);
     const [isAuthenticathed, setIsAuthenticated] = useState(false);
@@ -57,10 +58,10 @@ export const AunthProvider = ({ children }) => {
 
     useEffect( () =>
     {
-        async function checkLogin () 
+        async function checkLogin() 
         {
             const cookies = Cookies.get()
-
+            console.log(cookies);
             if ( !cookies.token )
             {
                 setIsAuthenticated( false )
@@ -71,14 +72,13 @@ export const AunthProvider = ({ children }) => {
             try
             {
                 const res = await verifyTokenRequest( cookies.token )
+                console.log(res);
                 if ( !res.data )
                 {
                     setIsAuthenticated( false )
                     setLoading( false )
-                    return
+                    return;
                 }
-
-
                 setIsAuthenticated( true )
                 setUser( res.data )
                 setLoading( false )
