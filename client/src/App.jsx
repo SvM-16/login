@@ -7,12 +7,14 @@ import ProfilePages from './pages/ProfilePages'
 import TaskFromPages from './pages/TaskFormPages'
 import HomePages from './pages/HomePages'
 import ProtectedRoute from './ProtectedRoute'
+import { TaskProvider } from './context/TasksContext'
 
 function App(){
   return(
     <>
     <AunthProvider>
-      <BrowserRouter>
+      <TaskProvider>
+        <BrowserRouter>
           <Routes>
             <Route path='/' element={<HomePages/>}/>
             <Route path='/login' element={<LoginPages />}/>
@@ -26,7 +28,8 @@ function App(){
             </Route>
           </Routes>
         </BrowserRouter>
-      </AunthProvider>
+      </TaskProvider>
+    </AunthProvider>
     </>
   )
 }
